@@ -1,8 +1,7 @@
-"""
-URL configuration for clothes_project project.
+"""imdb URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
+    https://docs.djangoproject.com/en/4.1/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,9 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from clothes_project_app.views.stats import stats
 
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
+from clothes_project_app.views.auth import signup, me
 
 urlpatterns = [
-    path('api/auth/', include('clothes_project_app.urls.auth')),
+    path('signup/', signup),
+    # given
+    path('token/', TokenObtainPairView.as_view()),
+    # given
+    path('token/refresh/', TokenRefreshView.as_view()),
+    path('me/', me)
 ]
