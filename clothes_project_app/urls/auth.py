@@ -16,18 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
-
-from clothes_project_app.views.auth import signup, me
-
-urlpatterns = [
-    path('signup/', signup),
-    # given
-    path('token/', TokenObtainPairView.as_view()),
-    # given
-    path('token/refresh/', TokenRefreshView.as_view()),
-    path('me/', me)
-]
+# from rest_framework_simplejwt.views import (
+#     TokenObtainPairView,
+#     TokenRefreshView,
+# )
+#
+# from clothes_project_app.views.auth import signup, me
+#
+# urlpatterns = [
+#     path('signup/', signup),
+#     # given
+#     path('token/', TokenObtainPairView.as_view()),
+#     # given
+#     path('token/refresh/', TokenRefreshView.as_view()),
+#     path('me/', me)
+# ]
